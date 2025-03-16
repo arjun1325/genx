@@ -22,7 +22,7 @@ const AdminSchema = new Schema({
         type: String,
         default: "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg",
     },
-    isactive: {
+    isActive: {
         type: Boolean,
         default: true,
     },
@@ -31,5 +31,5 @@ const AdminSchema = new Schema({
     timestamps: true,
 }
 );
-const Admin = mongoose.model("user", AdminSchema);
+const Admin = mongoose.model("admin", AdminSchema);
 export default Admin;
