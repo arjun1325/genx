@@ -1,5 +1,6 @@
 import express from "express";
-import { AdminLogin, AdminSignup } from "../controllers/adminController.js";
+import { AdminLogin, adminLogout, AdminProfile, AdminSignup, AdminUpdate } from "../controllers/adminController.js";
+import { authAdmin } from "../middleware/authAdmin.js";
 const router = express.Router();
 
 //sign up
@@ -9,9 +10,9 @@ router.post("/login",AdminLogin);
 
 //get profile
 
-router.get("/profile");
+router.get("/profile",authAdmin, AdminProfile );
 //update admin
-router.put("/update");
+router.put("/update",authAdmin,AdminUpdate);
 //deactivate
 
 router.put("/deactivate")
@@ -21,6 +22,6 @@ router.put("/deactivate")
 router.delete("/deleteadmin");
 
 //logout
-router.put("/logout")
+router.get("/logout",adminLogout)
 
 export {router as adminRouter}

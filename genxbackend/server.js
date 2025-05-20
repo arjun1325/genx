@@ -1,13 +1,16 @@
 import express from "express";
 import { connectDB } from "./config/db.js";
 import { apiRoutes } from "./routes/index.js";
+import cookieParser from "cookie-parser";
 
+connectDB();
 const app = express();
 const port = 3000;
 app.use(express.json());
-connectDB();
+app.use(cookieParser())
 
 app.use("/api", apiRoutes);
+
 
 app.get("/", (req, res) => {
     res.send("Hello World!");

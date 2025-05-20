@@ -1,5 +1,5 @@
 import express from "express";
-import { userRouter } from './userRoutes.js';
+import { userRouter } from './userRouter.js';
 import { adminRouter } from "./adminRoutes.js";
 import { sellerRouter } from "./sellerRoutes.js";
 

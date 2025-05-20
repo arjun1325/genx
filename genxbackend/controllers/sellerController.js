@@ -73,9 +73,10 @@ export const SellerLogin = async (req, res, next) => {
             
             res.json({ data: sellerExist, message: "not an active seller" });
         }
+        delete sellerExist._doc.password;
+        res.json({ data: sellerExist, message: "login successfull" });
 
     } catch (error) {
         res.status(error.statusCode || 500).json({ message: error.message || "internal error" });
     }
 };
-
